@@ -1,0 +1,24 @@
+.component-label-item-wrapper {
+    margin-top: 5px;
+}
+
+.component-item {
+    color: #000000;
+}
+
+
+
+/* media queries */
+
+@media screen and (min-width: 800px){
+    .component-label-item-wrapper {
+        display: grid; 
+        grid-template-columns: 2fr 5fr;
+    }
+
+    .component-label {
+        display: flex;
+        align-items: center;
+    }
+
+}

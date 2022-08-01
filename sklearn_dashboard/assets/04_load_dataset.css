@@ -1,0 +1,12 @@
+
+.load-dataset-wrapper {
+    display: grid;
+    grid-area: load_dataset;
+    background: black;
+    height: 100%;
+}
+
+
+#upload_dataset {
+    color: white;
+}

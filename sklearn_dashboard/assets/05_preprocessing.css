@@ -1,0 +1,9 @@
+
+
+.preprocessing-wrapper {
+    display: grid;
+    grid-area: preprocessing;
+    background: red;
+    height: 100%;
+    column-gap: 10px;
+}

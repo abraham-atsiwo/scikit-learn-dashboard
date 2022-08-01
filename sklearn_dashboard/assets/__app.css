@@ -1,0 +1,64 @@
+
+body {
+    background: var(--clr-primary-9);
+}
+
+.model-container {
+    display: grid; 
+    width: 95%;
+    min-height: 100px;
+    margin: 0 auto;
+    margin-top: 70px;
+    max-width: var(--max-width);
+
+}
+
+.model-content{
+    display: grid;
+    height: 100%;
+    width: 100%;  
+    row-gap: 10px;
+    grid-template-areas: "load_dataset"
+                         "preprocessing"
+                         "missing_value";
+    
+}
+
+.model-content-item {
+    display: flex;
+    background: var(--clr-black);
+    min-height: 100px;
+    flex-direction: column;
+}
+
+.model-content-header {
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+
+/* media queries */
+
+@media screen and (min-width: 786px) {
+
+    .model-content{  
+        grid-template-areas: "load_dataset preprocessing missing_value";
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 10px;
+    }
+
+    .model-content-item {
+        box-shadow: 3px 3px black;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    
+
+}
+
+
+
