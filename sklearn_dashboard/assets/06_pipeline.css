@@ -1,0 +1,9 @@
+
+.pipeline-wrapper {
+    display: grid;
+    grid-area: pipeline;
+}
+
+#categorical_dtypes_div {
+    color: white;
+}

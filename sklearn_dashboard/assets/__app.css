@@ -5,11 +5,11 @@ body {
 
 .model-container {
     display: grid; 
-    width: 95%;
-    min-height: 100px;
+    width: 98%;
     margin: 0 auto;
     margin-top: 70px;
     max-width: var(--max-width);
+    overflow-x: hidden;
 
 }
 
@@ -18,16 +18,18 @@ body {
     height: 100%;
     width: 100%;  
     row-gap: 10px;
-    grid-template-areas: "load_dataset"
+    grid-template-areas: "estimator_info"
+                         "load_dataset"
                          "preprocessing"
-                         "missing_value";
+                         "pipeline";
     
 }
 
 .model-content-item {
     display: flex;
+    width: 100%;
     background: var(--clr-black);
-    min-height: 100px;
+    /* min-height: 100px; */
     flex-direction: column;
 }
 
@@ -35,21 +37,28 @@ body {
     display: flex;
     justify-content: center;
     padding-top: 5px;
+    background: var(--clr-grey-5);
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
 
 /* media queries */
 
-@media screen and (min-width: 786px) {
+@media screen and (min-width: 800px) {
 
     .model-content{  
-        grid-template-areas: "load_dataset preprocessing missing_value";
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:  "estimator_info estimator_info estimator_info"
+                              "load_dataset preprocessing pipeline"
+                              "output_datatable output_datatable other_preprocessing";
+        grid-template-columns: 2fr 2fr 4fr;
         column-gap: 10px;
     }
 
     .model-content-item {
+        display: flex;
         box-shadow: 3px 3px black;
+        /* overflow-x: hidden; */
         border-radius: 10px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;

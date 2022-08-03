@@ -2,11 +2,27 @@
 .load-dataset-wrapper {
     display: grid;
     grid-area: load_dataset;
-    background: black;
     height: 100%;
 }
 
 
 #upload_dataset {
     color: white;
+}   
+
+/* .output-datatable {
+    display: none;
+} */
+
+
+/* media queries*/
+
+@media screen and (min-width: 800px){
+    .output-datatable {
+        display: grid;
+        margin: 0 auto;
+        grid-area: output_datatable;
+       
+        /* background-color: green; */
+    }
 }

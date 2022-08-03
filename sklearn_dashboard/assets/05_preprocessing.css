@@ -1,9 +1,55 @@
 
 
 .preprocessing-wrapper {
+    width: 100%;
     display: grid;
     grid-area: preprocessing;
-    background: red;
     height: 100%;
+}
+
+/* .other-preprocessing-wrapper {
+    width: 100%;
+    display: grid;
+    grid-area: other_preprocessing;
+    grid-template-areas: "other_preprocessing_col1 other_preprocessing_col2";
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 10px;
+} */
+
+.other-preprocessing-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    grid-area: other_preprocessing;
+    height: 100%;
+
+}
+
+@media screen and (min-width: 800px){
+
+    .other-preprocessing-col1, .other-preprocessing-col2 {
+        /* width: 49%; */
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .other-preprocessing-col1 {
+        width: 43%;
+    }
+
+    .other-preprocessing-col2 {
+        width: 55%;
+    }
+
+    .other-preprocessing-wrapper{
+        box-shadow: 3px 3px black;
+        overflow-x: hidden;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    
 }

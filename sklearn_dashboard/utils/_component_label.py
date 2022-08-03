@@ -1,12 +1,19 @@
 from dash.html import Div, Label 
-from dash.dcc import Dropdown, Upload
+from dash.dcc import Dropdown, Upload, RangeSlider, Slider
 from dash import dcc
 from typing import Optional, Dict
+from dash.html import Div
 
 from ..utils import classname_id_generator
 
 
-component_options = {"dropdown": Dropdown, "upload": Upload}
+component_options = {
+                    "dropdown": Dropdown, 
+                    "upload": Upload, 
+                    'div': Div,
+                    "slider": Slider,
+                    "range_slider": RangeSlider,
+                }
 
 def get_component(component_type):
     component_keys = list(component_options.keys())

@@ -28,6 +28,7 @@ app = Dash(__name__,
                 external_scripts=external_scripts,
                 external_stylesheets=external_stylesheets)
 app.title = "sklearn-dashboard"
+app.suppress_callback_exceptions = True
 
 
 __all__ = ["app"]

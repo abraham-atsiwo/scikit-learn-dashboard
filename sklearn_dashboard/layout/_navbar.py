@@ -24,4 +24,4 @@ navbar_items = Div(children = navbar_layout(["sklearn dashboard", dark_mode_labe
                     className="navbar-wrapper", id="navbar_wrapper")
 
 
-navbar_callback(app)
+# navbar_callback(app)

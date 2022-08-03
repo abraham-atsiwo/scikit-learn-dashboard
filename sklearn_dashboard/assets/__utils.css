@@ -1,5 +1,7 @@
 .component-label-item-wrapper {
     margin-top: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .component-item {

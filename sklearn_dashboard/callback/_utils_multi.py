@@ -3,7 +3,8 @@ from dash import Input, Output, callback_context as ctx
 
 from sklearn_dashboard.utils import multiple_callback_inputs, dark_mode_style_yes, dark_mode_style_no
 
-output_model_content_item_id = ["load_dataset", "preprocessing"]
+output_model_content_item_id = ["load_dataset", "preprocessing", "pipeline", "other_preprocessing_col1",
+                            "estimator_info", "output_datatable", "other_preprocessing", "other_preprocessing_col2"]
 input_dark_mode_id = ["dark_mode_yes", "dark_mode_no"]
 input_dark_mode_props = ["n_clicks"]*len(input_dark_mode_id)
 

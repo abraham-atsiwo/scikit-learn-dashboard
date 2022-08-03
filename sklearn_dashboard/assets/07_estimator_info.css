@@ -1,0 +1,36 @@
+
+.estimator-info-wrapper {
+    display: grid;
+    grid-area: estimator_info;
+    min-height: 60px;
+    /* position: sticky; */
+}
+
+.estimator-type-categories-options {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.estimator-type-categories-options-item {
+    padding: 5px;
+    background: green;
+    border: 1px solid;
+    min-width: 60px;
+    max-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* media queries*/
+
+@media screen and (min-width: 800px){ 
+    .estimator-info-wrapper {
+        grid-template-columns: 2fr 2fr 4fr;
+        column-gap: 10px;
+    }
+    
+}
