@@ -13,6 +13,8 @@ def store_layout(component_id_props: Dict) -> dcc:
 all_store_value = {
     "df" : "session",
     "df_columns": "session",
+    'parameters': 'session',
+    'hidden': 'session',
 }
 
 store_items = store_layout(all_store_value)

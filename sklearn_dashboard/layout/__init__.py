@@ -5,6 +5,7 @@ from ._store import store_layout, store_items
 from ._pipeline import pipeline_layout, pipeline_items
 from ._estimator_info import estimator_info_layout, estimator_info_items
 from ._other_feature_processing import other_processing_layout, other_processing_items
+from ._model import model_layout, model_items
 
 
 
@@ -22,5 +23,7 @@ __all__ = [
         "estimator_info_layout",
         "estimator_info_items",
         "other_processing_layout",
-        "other_processing_items"
+        "other_processing_items",
+        "model_layout",
+        "model_items"
     ]

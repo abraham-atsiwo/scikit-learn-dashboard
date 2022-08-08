@@ -4,7 +4,7 @@ from sklearn import preprocessing
 from typing import List
 
 from ..utils import dash_component_label
-from ..utils import preprocessing_categorical, preprocessing_numerical
+from ..preprocessing import preprocessing_numeric_options, preprocessing_categorical_options
 
 def preprocessing_layout(children: List):
     return Div(children=children, 
@@ -17,16 +17,14 @@ header = Div("feature preprocessing", className="model-content-header")
 numeric_columns = dash_component_label(label="numeric columns", 
                                     component_type="dropdown", 
                                     component_kwargs={
-                                            "options": list(preprocessing_numerical.keys()), 
-                                            "value": "",
+                                            "options": list(preprocessing_numeric_options.keys()), 
                                     }, 
                                     component_id="preprocessing_numeric")
 
 categorical_columns = dash_component_label(label="categorical columns", 
                                     component_type="dropdown", 
                                     component_kwargs={
-                                            "options": list(preprocessing_categorical.keys()), 
-                                            "value": "",
+                                            "options": list(preprocessing_categorical_options.keys()), 
                                     }, 
                                     component_id="preprocessing_categorical")
 

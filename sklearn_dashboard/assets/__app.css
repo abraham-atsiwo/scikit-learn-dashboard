@@ -29,7 +29,6 @@ body {
     display: flex;
     width: 100%;
     background: var(--clr-black);
-    /* min-height: 100px; */
     flex-direction: column;
 }
 
@@ -50,7 +49,9 @@ body {
     .model-content{  
         grid-template-areas:  "estimator_info estimator_info estimator_info"
                               "load_dataset preprocessing pipeline"
-                              "output_datatable output_datatable other_preprocessing";
+                              "output_datatable output_datatable other_preprocessing"
+                              "model_content model_content model_content";
+                              
         grid-template-columns: 2fr 2fr 4fr;
         column-gap: 10px;
     }
@@ -58,7 +59,6 @@ body {
     .model-content-item {
         display: flex;
         box-shadow: 3px 3px black;
-        /* overflow-x: hidden; */
         border-radius: 10px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;

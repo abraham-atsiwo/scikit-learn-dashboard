@@ -30,7 +30,7 @@ data_components = dash_component_label(label = "data_options",
 
 default_dataset = dash_component_label(label="default_dataset", 
                         component_type="dropdown",
-                        component_kwargs={"options": df_options, "value": df_options[0]})
+                        component_kwargs={"options": df_options, "value": df_options[0], 'clearable': False})
 
 upload_dataset = dash_component_label(label="upload_dataset", 
                                             component_kwargs={

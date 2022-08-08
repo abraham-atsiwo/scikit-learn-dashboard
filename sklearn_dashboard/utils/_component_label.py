@@ -1,5 +1,5 @@
 from dash.html import Div, Label 
-from dash.dcc import Dropdown, Upload, RangeSlider, Slider
+from dash.dcc import Dropdown, Upload, RangeSlider, Slider, RadioItems
 from dash import dcc
 from typing import Optional, Dict
 from dash.html import Div
@@ -13,6 +13,7 @@ component_options = {
                     'div': Div,
                     "slider": Slider,
                     "range_slider": RangeSlider,
+                    "radio_items": RadioItems,
                 }
 
 def get_component(component_type):

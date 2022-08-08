@@ -2,10 +2,8 @@
 from dash import Output, Input 
 from dash.exceptions import PreventUpdate
 
-from ..utils import multiple_callback_output, scoring_metrics
-
-
-
+from ..utils import multiple_callback_output
+from ..metrics import scoring_metrics
 
 id = ["target_regression_div", "target_classification_div", 
                 "target_regression_header", "target_classification_header", "metrics", "metrics"]
@@ -24,22 +22,21 @@ def other_feature_processing_callback(app):
         if estimator_type:
             if estimator_type == "regression":
                 output = [style_true, style_false]*2 
-                metrics = scoring_metrics[estimator_type]
+                metrics = list(scoring_metrics[estimator_type].keys())
                 output.extend([metrics] + [metrics[0]])
                 return output
             elif estimator_type == "classification":
                 output = [style_false, style_true]*2
-                metrics = scoring_metrics[estimator_type]
+                metrics = list(scoring_metrics[estimator_type].keys())
                 output.extend([metrics] + [metrics[0]])
-                print(output)
                 return output
-        return [style_false, style_false, style_false, style_false, [], ""]
+        return [style_false, style_false, style_false, style_false, [], None]
 
 
     @app.callback(multiple_callback_output(cv_id, cv_props), 
-            Input("cv_type", "value"))
+            Input("cross_validate", "value"))
     def hide_cv(cv_type):
-        if not cv_type:
+        if not cv_type or cv_type == 'false':
             return [{"display": "none"}]*len(cv_id)
         return [{"display": "grid"}]*len(cv_id)
 

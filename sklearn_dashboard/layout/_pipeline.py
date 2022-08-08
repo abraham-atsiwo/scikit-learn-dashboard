@@ -31,10 +31,10 @@ def pipeline_layout(children: List):
 header = Div("select features", className="model-content-header")
 numeric = dash_component_label(label="numeric dtypes features", 
                                 component_type="dropdown", 
-                                component_kwargs={"options": [], "value": "", "multi": True})
+                                component_kwargs={"options": [], "value": None, "multi": True, 'clearable': False})
 
 categorical = dash_component_label(label="categorical dtypes features", 
                                 component_type="dropdown", 
-                                component_kwargs={"options": [], "value": "", "multi": True})
+                                component_kwargs={"options": [], "value": None, "multi": True, 'clearable': False})
 
 pipeline_items = pipeline_layout([header, numeric, categorical])

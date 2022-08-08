@@ -1,0 +1,55 @@
+
+.model-wrapper {
+    display: grid;
+    width: 100%;
+    grid-area: model_content;
+    grid-template-areas: "header header"
+                         "error error"
+                         "description graph_others"
+                         "description graph_prediction";
+    gap: 10px;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: minmax(50px, auto) 50px minmax(400px, 450px) minmax(400px, 450px); 
+}
+
+.error {
+    display: grid;
+    grid-area: error;
+    min-height: 50px;
+}
+
+.model-header {
+    grid-area: header;
+    display: grid;
+    justify-content: center;
+    min-height: 50px;
+}
+
+.model-description{
+    display: flex;
+    flex-direction: column;
+    grid-area: description;
+    width: 100%;
+    height: 100%;
+}
+
+.model-graph-others {
+    display: grid;
+    grid-area: graph_others;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.model-graph-prediction {
+    display: grid;
+    grid-area: graph_prediction;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#model_graph_others, #model_graph_prediction {
+    width: 100%;
+    height: 100%;
+}

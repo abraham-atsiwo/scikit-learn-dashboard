@@ -121,7 +121,7 @@ def load_dataset_callback(app):
             return [columns_numeric, columns_numeric[0]]
         elif estimator_type == "classification":
             return [columns_categorical, columns_categorical[0]]
-        return [[], ""]
+        return [[], None]
 
     id = ["numeric_dtypes_features", "categorical_dtypes_features"]
     props = ["value", "value"]
@@ -139,11 +139,13 @@ def load_dataset_callback(app):
         colnames = loads(df_columns)
         if target:
             if estimator_type == "regression":
-                if target in numeric:
-                    numeric.remove(target)
+                if numeric:
+                    if target in numeric:
+                        numeric.remove(target)
             elif estimator_type == "classification":
-                if target in categorical:
-                    categorical.remove(target)
+                if categorical:
+                    if target in categorical:
+                        categorical.remove(target)
         return [numeric, categorical]
             
     
