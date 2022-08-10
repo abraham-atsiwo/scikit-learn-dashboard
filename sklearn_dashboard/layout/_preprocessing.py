@@ -24,7 +24,7 @@ numeric_columns = dash_component_label(label="numeric columns",
 categorical_columns = dash_component_label(label="categorical columns", 
                                     component_type="dropdown", 
                                     component_kwargs={
-                                            "options": list(preprocessing_categorical_options.keys()), 
+                                            "options": list(preprocessing_categorical_options.keys()), 'value': "OneHotEncoder",
                                     }, 
                                     component_id="preprocessing_categorical")
 

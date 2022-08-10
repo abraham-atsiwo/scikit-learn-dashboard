@@ -72,9 +72,8 @@ def model_callback(app):
         features = dataset[features_label]
         target = dataset[target_label]
         #train test split
-        X_train, X_test, y_train, y_test = train_test_split(features, target, 
+        X_train, X_test, y_train, y_test = train_test_split(features, target, random_state=0,
                                                 train_size=parameters['train_proportion'])
-
 
         #fit and select model parameters
         numeric = preprocessing_numeric_options.get(parameters['preprocessing_numeric'])
@@ -83,26 +82,35 @@ def model_callback(app):
                                     'type': numeric
                                 }
         categorical_pipeline_kwargs = {'type': categorical}
-        model_kwargs = {}
         is_cv = parameters['cross_validate']
         cv_kwargs = {'cv': parameters['n_fold']}
         metrics = parameters['metrics']
         output = ['Hello', 'Amando', line(), line()]
+        #required parameters 
+        required_pars = {'X_train':X_train, 
+                        'y_train': y_train,
+                        'X_test': X_test,
+                        'y_test': y_test,
+                        'df_range': df_range,
+                        'metrics': metrics,
+                        'numeric_pipeline_kwargs': numerical_pipeline_kwargs,
+                        'categorical_pipeline_kwargs': categorical_pipeline_kwargs,
+                        'is_cv': is_cv,
+                        'cv_kwargs': cv_kwargs,
+        }
         if fit_model:
             if fit_model == 'ols':
-                output = ols_output(X_train=X_train, 
-                                    y_train=y_train, 
-                                    X_test=X_test, 
-                                    y_test=y_test, 
-                                    df_range=df_range,
-                                    metrics=metrics,
-                                    is_cv=is_cv,
-                                    cv_kwargs=cv_kwargs,
-                                    model_kwargs=model_kwargs, 
-                                    numeric_pipeline_kwargs=numerical_pipeline_kwargs, 
-                                    categorical_pipeline_kwargs=categorical_pipeline_kwargs)
-            return ['datasetkkk not found ', output[0], output[1], output[2]]
-        return ['datasetkkk not found ', 'This world', line(), line()]
+                model_kwargs = {}
+                output = ols_output(**required_pars,
+                                    model_kwargs=model_kwargs)
+                return ['datasetkkk not found ', output[0], output[1], output[2]]
+            if fit_model == 'lassocv':
+                model_kwargs = {}
+                output = lassocv_output(**required_pars, 
+                                        model_kwargs=model_kwargs)
+                return output
+            return ['da not found', 'This world', line(), line()]
+        return ['datask not found', 'This world', line(), line()]
         
         
 

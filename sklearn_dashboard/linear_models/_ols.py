@@ -1,7 +1,7 @@
 
 from sklearn import linear_model
 from ..preprocessing import preprocessor
-from ..utils import unpivot, output_df, dash_component_label
+from ..utils import output_df
 from ..metrics import regression_metrics as scoring_metrics
 
 from sklearn.linear_model import LinearRegression
@@ -16,29 +16,9 @@ from dash.html import Div
 
 from sklearn.preprocessing import StandardScaler
 
-def predicted_actual_plot(predicted, actual):
-    df_predict_actual = get_dataframe(predicted, actual)
-    df = unpivot(df_predict_actual)
-    plot_predicted_actual = line(df, x='observation', 
-                                y='target', 
-                                color='type', 
-                                line_dash='type')
-    return plot_predicted_actual
+from ..utils import predicted_actual_plot, predicted_residual_plot, get_dataframe
 
-def predicted_residual_plot(standardized_residuals, predicted):
-    plot_residual = scatter(y=standardized_residuals, x=predicted, 
-                        labels={'x': 'predicted target',    
-                                'y': 'standardized residuals'},
-                        title="predicted values vs. standardized residuals")
-    plot_residual.add_hline(y=0)
-    return plot_residual
-
-def get_dataframe(predicted, actual):
-    df_predict_actual = DataFrame({'predicted': predicted, 
-                                   'target': np.round(np.array(actual), 2)})
-    return df_predict_actual
         
-
 def ols_output(X_train: DataFrame, 
             y_train: DataFrame,
             X_test: DataFrame,
@@ -90,7 +70,7 @@ def ols_output(X_train: DataFrame,
     else:
         cross_validation = cross_val_score(pipe, X_train, y_train, **cv_kwargs)
         n = range(1, len(cross_validation) + 1)
-        cv_plot = scatter(x=n, y=cross_validation, labels={'x': 'n_fold', 'y': 'cross validation error'})
+        cv_plot = line(x=n, y=cross_validation, labels={'x': 'n_fold', 'y': 'cross validation error'})
         # print(cross_validation)
         return [model_description, cv_plot, plot_predicted_actual]
 
