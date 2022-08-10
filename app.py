@@ -15,6 +15,8 @@ model_container = Div(
                         className="model-content")], 
                     className="model-container", 
                         id="model-container")
+
+server = app.server                       
 app.layout = Div(children=[navbar_items, model_container])
 
 initialise_callback(app)
