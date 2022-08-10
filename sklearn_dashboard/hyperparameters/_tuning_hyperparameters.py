@@ -20,5 +20,5 @@ style_hide = {'display': 'none'}
 show_hide_hyperparameters = {
     'ols': [style_hide]*number_of_components,
     'lasso': [style_show, style_hide, style_hide, style_show],
-    'lassocv': [style_show, style_hide, style_hide, style_show], 
+    # 'lassocv': [style_show, style_hide, style_hide, style_show], 
 }

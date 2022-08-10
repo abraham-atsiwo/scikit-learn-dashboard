@@ -8,7 +8,7 @@ dark_mode_style_no = {"backgroundColor": "hsl(212, 33%, 89%)", "color": "black"}
 
 
 estimator_type_categories_options = {
-    "linear_models": ["ols", "lasso", 'lassocv'],
+    "linear_models": ["ols", "lasso", "ridge"],
     "neighbors": ["k_nearest"]
 }
 

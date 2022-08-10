@@ -104,7 +104,7 @@ def model_callback(app):
                 output = ols_output(**required_pars,
                                     model_kwargs=model_kwargs)
                 return ['datasetkkk not found ', output[0], output[1], output[2]]
-            if fit_model == 'lassocv':
+            if fit_model == 'lasso':
                 model_kwargs = {}
                 output = lassocv_output(**required_pars, 
                                         model_kwargs=model_kwargs)
