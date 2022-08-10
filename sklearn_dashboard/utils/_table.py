@@ -3,6 +3,8 @@ from dash.dash_table import DataTable
 import numpy as np
 from pandas import DataFrame
 
+from plotly.express import line, scatter
+
 def output_df(df):
     return Div([
         # Div("Sample data"),
@@ -40,3 +42,26 @@ def unpivot(frame):
         "observation": np.tile(np.asarray([j for j in range(N)]), K),
     }
     return DataFrame(data, columns=["observation", "type", "target"])
+
+
+def predicted_actual_plot(predicted, actual):
+    df_predict_actual = get_dataframe(predicted, actual)
+    df = unpivot(df_predict_actual)
+    plot_predicted_actual = line(df, x='observation', 
+                                y='target', 
+                                color='type', 
+                                line_dash='type')
+    return plot_predicted_actual
+
+def predicted_residual_plot(standardized_residuals, predicted):
+    plot_residual = scatter(y=standardized_residuals, x=predicted, 
+                        labels={'x': 'predicted target',    
+                                'y': 'standardized residuals'},
+                        title="predicted values vs. standardized residuals")
+    plot_residual.add_hline(y=0)
+    return plot_residual
+
+def get_dataframe(predicted, actual):
+    df_predict_actual = DataFrame({'predicted': predicted, 
+                                   'target': np.round(np.array(actual), 2)})
+    return df_predict_actual

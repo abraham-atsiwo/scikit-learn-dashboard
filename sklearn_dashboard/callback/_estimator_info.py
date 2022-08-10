@@ -10,10 +10,7 @@ from ..utils import (estimator_type_categories_options,
                     multiple_callback_output,
                     dash_component_label)
 
-from ..hyperparameters import hyperparameters, show_hide_hyperparameters
-
-
-
+from ..hyperparameters import show_hide_hyperparameters
 
 estimator_type_categories_options_keys = list(estimator_type_categories_options.keys())
 
