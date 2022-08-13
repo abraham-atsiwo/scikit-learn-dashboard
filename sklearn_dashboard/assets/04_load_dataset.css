@@ -1,18 +1,29 @@
 
 .load-dataset-wrapper {
     display: grid;
+    width: 100%;
     grid-area: load_dataset;
     height: 100%;
 }
 
+.load-dataset-error {
+    display: flex;
+    grid-area: load_dataset_error;
+    min-height: 30px;
+    width: 100%;
+    flex-direction: column;
+}
 
 #upload_dataset {
     color: white;
 }   
 
-/* .output-datatable {
-    display: none;
-} */
+.output-datatable {
+    width: 100%;
+    overflow-x: scroll;
+    min-height: 100px;
+    grid-area: output_datatable;
+}
 
 
 /* media queries*/
@@ -20,9 +31,6 @@
 @media screen and (min-width: 800px){
     .output-datatable {
         display: grid;
-        margin: 0 auto;
-        grid-area: output_datatable;
-       
-        /* background-color: green; */
+        margin: 0 auto;       
     }
 }

@@ -1,5 +1,5 @@
 from ._navbar import navbar_layout, navbar_items
-from ._load_dataset import load_data_layout, load_data_items
+from ._load_dataset import load_data_layout, load_data_items, load_dataset_error
 from ._preprocessing import preprocessing_layout, preprocessing_items
 from ._store import store_layout, store_items
 from ._pipeline import pipeline_layout, pipeline_items
@@ -25,5 +25,6 @@ __all__ = [
         "other_processing_layout",
         "other_processing_items",
         "model_layout",
-        "model_items"
+        "model_items",
+        "load_dataset_error",
     ]

@@ -66,7 +66,7 @@ def ols_output(X_train: DataFrame,
     model_description = [data_header, data_style, scoring_header, metrics_df]
     n = len(y_test)
     if is_cv == 'false' or is_cv is None:
-        return [model_description, plot_residual, plot_predicted_actual]
+        return [None, model_description, plot_residual, plot_predicted_actual]
     else:
         cross_validation = cross_val_score(pipe, X_train, y_train, **cv_kwargs)
         n = range(1, len(cross_validation) + 1)

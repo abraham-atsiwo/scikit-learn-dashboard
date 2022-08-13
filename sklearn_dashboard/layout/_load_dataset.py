@@ -46,5 +46,9 @@ upload_dataset = dash_component_label(label="upload_dataset",
 load_data_items = load_data_layout([header, data_components, default_dataset, 
                                     upload_dataset])
 
+load_dataset_error = Div(children=
+                            [Div("Loading dataset error ...", className='model-content-header'), 
+                                Div(className='model-content-item')], 
+                            className='load-dataset-error', id="load_dataset_error")
 
 # load_dataset_callback(app)
