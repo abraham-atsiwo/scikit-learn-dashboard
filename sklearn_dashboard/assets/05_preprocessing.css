@@ -7,6 +7,11 @@
     height: 100%;
 }
 
+.other-preprocessing-col1, .other-preprocessing-col2 {
+    width: 100%;
+}
+
+
 /* .other-preprocessing-wrapper {
     width: 100%;
     display: grid;
@@ -19,6 +24,7 @@
 .other-preprocessing-wrapper {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     grid-area: other_preprocessing;
     height: 100%;
@@ -28,22 +34,22 @@
 @media screen and (min-width: 800px){
 
     .other-preprocessing-col1, .other-preprocessing-col2 {
-        /* width: 49%; */
         display: flex;
         flex-direction: column;
         height: 100%;
     }
 
     .other-preprocessing-col1 {
-        width: 43%;
+        width: 45%;
     }
 
     .other-preprocessing-col2 {
-        width: 55%;
+        width: 53%;
     }
 
     .other-preprocessing-wrapper{
         box-shadow: 3px 3px black;
+        flex-direction: row;
         overflow-x: hidden;
         border-radius: 10px;
         -webkit-border-radius: 10px;

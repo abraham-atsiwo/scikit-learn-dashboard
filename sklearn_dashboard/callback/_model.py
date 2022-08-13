@@ -56,18 +56,18 @@ def model_callback(app):
     )
     def fit_model_update_graph(fit_model, parameters, df, df_range, estimator_type_options):
         if df is None:
-            return ['please upload dataset', 'Hello', line(), line()]
+            return ['please upload or select dataset', '', line(), line()]
         if parameters is None:
-            return ["click to select model", 'Hello', line(), line()]
+            return ["select a model to fit", '', line(), line()]
     
         for val in ["estimator_type", "estimator_type_categories",
                     "numeric_dtypes_features", "categorical_dtypes_features"]:
             if parameters[val] is None:
-                return [val + " cannot be none", 'Hello', line(), line()]
+                return [val + " dropdown cannot be none", '', line(), line()]
         features_label = parameters["numeric_dtypes_features"] + parameters["categorical_dtypes_features"]
         target_label = parameters['select_target']
         if len(features_label) == 0 or len(target_label) == 0:
-            return ['dataset nothj found ', 'Hello', line(), line()]
+            return ['select features and targets', '', line(), line()]
         dataset = read_json(df, orient='split')
         features = dataset[features_label]
         target = dataset[target_label]
@@ -99,18 +99,25 @@ def model_callback(app):
                         'cv_kwargs': cv_kwargs,
         }
         if fit_model:
+            def display_time(start, end):
+                fit_time = end-start
+                return "Fit time: "+ str(round(fit_time, 4)) + ' seconds'
             if fit_model == 'ols':
                 model_kwargs = {}
+                import time 
+                start_time = time.time()
                 output = ols_output(**required_pars,
                                     model_kwargs=model_kwargs)
-                return ['datasetkkk not found ', output[0], output[1], output[2]]
+                end_time = time.time()
+                output[0] = display_time(start_time, end_time)
+                return output
             if fit_model == 'lasso':
                 model_kwargs = {}
                 output = lassocv_output(**required_pars, 
                                         model_kwargs=model_kwargs)
                 return output
             return ['da not found', 'This world', line(), line()]
-        return ['datask not found', 'This world', line(), line()]
+        return ['select model from dropdown to fit', '', line(), line()]
         
         
 

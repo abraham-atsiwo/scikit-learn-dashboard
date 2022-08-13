@@ -5,9 +5,9 @@ body {
 
 .model-container {
     display: grid; 
+    margin: 70px auto 0 auto;
     width: 98%;
-    margin: 0 auto;
-    margin-top: 70px;
+    width: 80%;
     max-width: var(--max-width);
     overflow-x: hidden;
 
@@ -19,9 +19,13 @@ body {
     width: 100%;  
     row-gap: 10px;
     grid-template-areas: "estimator_info"
+                         "load_dataset_error"
                          "load_dataset"
                          "preprocessing"
-                         "pipeline";
+                         "pipeline"
+                         "output_datatable"
+                         "other_preprocessing"
+                         "model_content";
     
 }
 
@@ -34,11 +38,11 @@ body {
 
 .model-content-header {
     display: flex;
-    justify-content: center;
     padding-top: 5px;
     background: var(--clr-grey-5);
     text-transform: capitalize;
     font-weight: bold;
+    width: 100%;
 }
 
 
@@ -46,8 +50,14 @@ body {
 
 @media screen and (min-width: 800px) {
 
+    .model-container {
+        width: 98%;
+    
+    }  
+
     .model-content{  
         grid-template-areas:  "estimator_info estimator_info estimator_info"
+                              "load_dataset_error load_dataset_error load_dataset_error"
                               "load_dataset preprocessing pipeline"
                               "output_datatable output_datatable other_preprocessing"
                               "model_content model_content model_content";
@@ -65,6 +75,16 @@ body {
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
     }
+
+    .model-content-header {
+        display: flex;
+        justify-content: center;
+        padding-top: 5px;
+        background: var(--clr-grey-5);
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+    
     
 
 }

@@ -30,7 +30,15 @@
 @media screen and (min-width: 800px){ 
     .estimator-info-wrapper {
         grid-template-columns: 2fr 2fr 4fr;
-        column-gap: 10px;
+        column-gap: 5px;
     }
     
 }
+
+/* @media screen and (min-width: 1000px){ 
+    .estimator-info-wrapper {
+        grid-template-columns: 2fr 2fr 4fr;
+        column-gap: 10px;
+    }
+    
+} */

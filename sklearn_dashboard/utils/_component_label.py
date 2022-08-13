@@ -44,6 +44,7 @@ def dash_component_label(label: str,
         get_id = component_id
 
     _label = Label(label, className=label_classname, **label_kwargs)
-    _component = component(id=get_id, **component_kwargs, className=component_classname)
+    _component = Div(component(id=get_id, **component_kwargs, className=component_classname), 
+                    className=component_classname+'-div')
     return Div(
                 children=[_label, _component], className=div_classname, id=get_id+"_div")

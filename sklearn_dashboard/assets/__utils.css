@@ -1,16 +1,52 @@
+
 .component-label-item-wrapper {
-    margin-top: 5px;
-    display: flex;
-    flex-direction: column;
+    display: grid; 
+    grid-template-areas: "label component";
+    grid-template-columns: 50% 50%;
+    min-height: 40px;
+    width: 100%;
+    color: white;
+}
+
+.component-item-div {
+    display: grid;
+    grid-area: component;
+}
+
+.component-label {
+    display: grid;
+    height: 100%;
+    align-items: center;
+    grid-area: label;
+    padding-right: 5px;
 }
 
 .component-item {
-    color: #000000;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: black;
+}
+
+@media screen and (min-width: 360px){
+    .component-label-item-wrapper {
+        display: grid; 
+        grid-template-columns: 2fr 3fr;
+    }
+    
+    .component-label {
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+    }
+    
+    .component-item {
+        display: flex;
+    }
+    
 }
 
 
-
-/* media queries */
 
 @media screen and (min-width: 800px){
     .component-label-item-wrapper {
@@ -21,6 +57,10 @@
     .component-label {
         display: flex;
         align-items: center;
+    }
+
+    .component-item {
+        display: flex;
     }
 
 }
