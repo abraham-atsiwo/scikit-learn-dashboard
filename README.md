@@ -2,6 +2,8 @@
 
 #### Demo:
 
-#### Description:
-
 #### Installation:
+
+#### Description
+
+<img src="/images/scikit-learn-dashboard.png" alt="Alt text" title="Optional title">
